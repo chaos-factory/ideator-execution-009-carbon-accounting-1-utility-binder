@@ -1,0 +1,1 @@
+Utility Binder: Turn messy utility bills into a clean dataset and audit-ready exports. Client-side app for SMBs to import electricity/gas, map ZIP to eGRID, pick Scope 2 basis and T&D losses, and export CSV/XLSX/PDF with calculation log and factor/version labels.
