@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility Binder – Turn messy utility bills into a clean dataset and audit-ready exports</title>
+    <meta name="description" content="Drag‑drop electricity and gas bills, map units, lock factor versions, and export CSV/XLSX/PDF with Scope 2 basis labels and a per‑row Calculation Log. 100% client‑side.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Utility Binder – Turn messy utility bills into a clean dataset and audit-ready exports">
+    <meta property="og:description" content="Drag‑drop electricity and gas bills, map units, lock factor versions, and export CSV/XLSX/PDF with Scope 2 basis labels and a per‑row Calculation Log. 100% client‑side.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chaos-factory.github.io/ideator-execution-009carbonaccounting-1-utilitybinder/">
+    <meta property="og:image" content="https://chaos-factory.github.io/ideator-execution-009carbonaccounting-1-utilitybinder/assets/social-image.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Utility Binder – Turn messy utility bills into a clean dataset and audit-ready exports">
+    <meta name="twitter:description" content="Drag‑drop electricity and gas bills, map units, lock factor versions, and export CSV/XLSX/PDF with Scope 2 basis labels and a per‑row Calculation Log. 100% client‑side.">
+    <meta name="twitter:image" content="https://chaos-factory.github.io/ideator-execution-009carbonaccounting-1-utilitybinder/assets/social-image.png">
+    
+    <!-- SEO -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://chaos-factory.github.io/ideator-execution-009carbonaccounting-1-utilitybinder/">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Top notice bar -->
+    <div id="notice-bar" class="notice-bar" role="alert" aria-live="polite">
+        <div class="container">
+            <p>Regulatory context: California SB 253 proposed regs posted Dec 9, 2025; ESRS/CSRD adoption ongoing; SEC climate rule stayed. Utility Binder helps you prepare—no legal advice.</p>
+            <button id="dismiss-notice" class="dismiss-btn" aria-label="Dismiss notice">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header id="main-header" class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="#" class="logo-link">Utility Binder</a>
+            </div>
+            
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li class="nav-item has-dropdown">
+                        <button class="nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                            Product
+                            <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+                                <path d="M2 4l4 4 4-4"/>
+                            </svg>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#how-it-works">Overview</a></li>
+                            <li><a href="#column-mapper">Column Mapper</a></li>
+                            <li><a href="#scope2-basis">Scope 2 Basis</a></li>
+                            <li><a href="#exports">Exports</a></li>
+                            <li><a href="#calculation-log">Calculation Log</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="#how-it-works" class="nav-link">How it works</a></li>
+                    <li class="nav-item"><a href="#factors-standards" class="nav-link">Factors &amp; Standards</a></li>
+                    <li class="nav-item"><a href="#privacy" class="nav-link">Security &amp; Privacy</a></li>
+                    <li class="nav-item"><a href="#resources" class="nav-link">Resources</a></li>
+                    <li class="nav-item"><a href="#pricing" class="nav-link">Pricing</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-ctas">
+                <a href="#app" class="btn btn-secondary">Import/Download Sample Pack</a>
+                <a href="#app" class="btn btn-primary">Launch Free Tool</a>
+            </div>
+        </div>
+    </header>
+    
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Turn messy utility bills into a clean dataset and audit‑ready exports.</h1>
+                    <p class="hero-subtitle">Drag‑drop electricity and gas bills, map units, lock factor versions, and export defensible results. Works entirely in your browser—no uploads, no PII risk.</p>
+                    
+                    <div class="hero-ctas">
+                        <a href="#app" class="btn btn-primary btn-large">Launch Free Tool</a>
+                        <button id="demo-video-btn" class="btn btn-secondary btn-large">Watch 90‑second demo</button>
+                        <a href="#sample-pack" class="btn btn-outline btn-large">Download Sample Pack</a>
+                    </div>
+                    
+                    <div class="trust-badges">
+                        <span class="badge">GHG Protocol Corporate Standard + Scope 2 Guidance aligned</span>
+                        <span class="badge">EPA eGRID2023 subregion factors (rev Jun 12, 2025)</span>
+                        <span class="badge">EPA Emission Factors Hub 2025; GWP basis: IPCC AR5‑100</span>
+                        <span class="badge">Client‑side; offline capable</span>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <img src="assets/screenshots/hero-screenshot.png" alt="Utility Binder application interface showing bill import and mapping" loading="lazy" class="hero-screenshot">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Problem Band -->
+        <section class="problem-band">
+            <div class="container">
+                <h2 class="section-title">Spreadsheets break. Factors drift. Audits demand labels.</h2>
+                
+                <div class="problem-grid">
+                    <div class="problem-card">
+                        <h3 class="problem-title">Normalization pain</h3>
+                        <p>12×N monthly bills across sites, inconsistent units, missing ZIPs—your pivot tables weren't built for that.</p>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <h3 class="problem-title">Factor/version confusion</h3>
+                        <p>What subregion? Which eGRID revision? Did you label AR5‑100 vs AR6? Utility Binder does it for you.</p>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <h3 class="problem-title">Assurance pressure</h3>
+                        <p>Buyers, landlords, and lenders want scope‑ready exports with lineage. Get there in minutes, not weeks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Who it's for -->
+        <section class="audience-section">
+            <div class="container">
+                <h2 class="section-title">Built for SMB property and facility teams</h2>
+                
+                <div class="audience-grid">
+                    <div class="audience-card">
+                        <div class="icon-wrapper">
+                            <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="audience-title">Property Managers</h3>
+                        <ul class="audience-list">
+                            <li>Consolidate tenant utilities for ESG disclosure</li>
+                            <li>Label scope correctly for asset-level reporting</li>
+                            <li>Provide clean exports to sustainability consultants</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="audience-card">
+                        <div class="icon-wrapper">
+                            <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"></path>
+                                <path d="M9 7h6M9 11h6M9 15h6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="audience-title">Facility Coordinators</h3>
+                        <ul class="audience-list">
+                            <li>Normalize multi-site bills without pivot-table hell</li>
+                            <li>Lock in eGRID and EPA factor versions for audit trail</li>
+                            <li>Export defensible results for corporate reporting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="audience-card">
+                        <div class="icon-wrapper">
+                            <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <h3 class="audience-title">Small Business Owners</h3>
+                        <ul class="audience-list">
+                            <li>Respond to lender ESG questions with real data</li>
+                            <li>Prepare for disclosure rules without hiring a consultant</li>
+                            <li>Keep bills private—no uploads, no PII exposure</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="audience-card">
+                        <div class="icon-wrapper">
+                            <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3 class="audience-title">Sustainability Leads</h3>
+                        <ul class="audience-list">
+                            <li>Get clean, scope-labeled datasets from non-technical teams</li>
+                            <li>Verify calculations with per-row lineage logs</li>
+                            <li>Spend time on strategy, not spreadsheet forensics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How it works -->
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2 class="section-title">From import to audit‑ready exports in five steps</h2>
+                
+                <div class="steps">
+                    <!-- Step 1 -->
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Step 1: Import Bills</h3>
+                            <p class="step-description">Drag and drop your CSV or Excel files containing electricity and gas bills. Utility Binder validates structure and data quality on import.</p>
+                            <div class="step-visual">
+                                <img src="assets/screenshots/step1-import.png" alt="Import interface showing file upload area" loading="lazy">
+                            </div>
+                            <div class="message-preview validation-message">
+                                <svg class="message-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                </svg>
+                                Row 14: ZIP is not 5 digits.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Step 2: Map Columns</h3>
+                            <p class="step-description">Map your columns to standard fields (Date, Site, ZIP, Usage, Units). Built-in unit converter handles kWh, therms, MCF, and more.</p>
+                            <div class="step-visual">
+                                <img src="assets/screenshots/step2-mapper.png" alt="Column mapping interface" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Step 3: Factors &amp; Options</h3>
+                            <p class="step-description">Choose Scope 2 basis (location-based, market-based, or both), toggle T&amp;D losses, and lock in factor versions. ZIP codes automatically map to eGRID subregions.</p>
+                            <div class="step-visual">
+                                <img src="assets/screenshots/step3-factors.png" alt="Factors and options configuration panel" loading="lazy">
+                            </div>
+                            <div class="message-preview info-message">
+                                <svg class="message-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                                    <circle cx="8" cy="4.5" r="1"/>
+                                </svg>
+                                Market‑based EF missing; showing location‑based only.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Step 4: Results</h3>
+                            <p class="step-description">View computed emissions with Scope 2 basis labels, warnings panel, and calculation summaries. Results are displayed in both electricity and gas tables.</p>
+                            <div class="step-visual">
+                                <img src="assets/screenshots/step4-results.png" alt="Results table showing computed emissions" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 5 -->
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Step 5: Exports</h3>
+                            <p class="step-description">Export to CSV, XLSX, or PDF with calculation logs, factor citations, and audit-ready footers. Save and load projects for version control.</p>
+                            <div class="step-visual">
+                                <img src="assets/screenshots/step5-exports.png" alt="Export options panel" loading="lazy">
+                            </div>
+                            <div class="export-buttons">
+                                <button class="btn btn-outline btn-small">Export CSV</button>
+                                <button class="btn btn-outline btn-small">Export XLSX</button>
+                                <button class="btn btn-outline btn-small">Export PDF</button>
+                                <button class="btn btn-outline btn-small">Save Project</button>
+                                <button class="btn btn-outline btn-small">Load Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Feature Deep Dives -->
+        <section class="features-deep-dive">
+            <div class="container">
+                <h2 class="section-title">Feature deep dives</h2>
+                
+                <!-- Column Mapper -->
+                <div id="column-mapper" class="feature-detail">
+                    <h3 class="feature-title">Column Mapper and Unit Converter</h3>
+                    <p>Map your CSV columns to standard fields: Date, Site Name, ZIP Code, Usage, Units, Fuel Type. The built-in unit converter handles:</p>
+                    <ul class="feature-list">
+                        <li><strong>Electricity:</strong> kWh, MWh, GWh</li>
+                        <li><strong>Gas:</strong> therms, MCF, CCF, cubic meters, MMBtu</li>
+                    </ul>
+                    <p class="feature-note">All conversions are deterministic and documented in the calculation log.</p>
+                </div>
+                
+                <!-- ZIP to eGRID -->
+                <div class="feature-detail">
+                    <h3 class="feature-title">ZIP → eGRID subregion lookup</h3>
+                    <p>Utility Binder automatically maps ZIP codes to EPA eGRID2023 subregions and displays the applicable emission factor:</p>
+                    <div class="banner-example egrid-banner">
+                        <strong>eGRID2023 RMPA</strong> • 0.498 kg CO₂e/kWh • Revision: Jun 12, 2025
+                    </div>
+                    <p class="feature-note">If a ZIP maps to multiple subregions, the tool prompts you to select the correct one.</p>
+                </div>
+                
+                <!-- Scope 2 Basis -->
+                <div id="scope2-basis" class="feature-detail">
+                    <h3 class="feature-title">Scope 2 basis selector and T&amp;D losses toggle</h3>
+                    <p>Choose your reporting basis and optionally include transmission and distribution losses:</p>
+                    <ul class="feature-list">
+                        <li><strong>Location-based:</strong> Uses grid average emission factors from eGRID</li>
+                        <li><strong>Market-based:</strong> Uses supplier-specific or contractual factors (if available)</li>
+                        <li><strong>Both:</strong> Exports separate columns for each basis</li>
+                    </ul>
+                    <div class="formula-block">
+                        <p><strong>Location-based formula:</strong></p>
+                        <code>Emissions = Usage (kWh) × eGRID_EF × (1 + T&D_loss_factor)</code>
+                    </div>
+                    <div class="formula-block">
+                        <p><strong>Market-based formula:</strong></p>
+                        <code>Emissions = Usage (kWh) × Market_EF × (1 + T&D_loss_factor)</code>
+                    </div>
+                    <p class="feature-note">T&D losses default to EPA's 5% factor but can be customized per the GHG Protocol.</p>
+                </div>
+                
+                <!-- Gas normalization -->
+                <div class="feature-detail">
+                    <h3 class="feature-title">Gas normalization and factors</h3>
+                    <p>Natural gas bills come in various units. Utility Binder normalizes to standard units and applies EPA Emission Factors Hub 2025 values:</p>
+                    <ul class="feature-list">
+                        <li><strong>Natural gas EF:</strong> 53.06 kg CO₂e/MMBtu (AR5-100 GWP basis)</li>
+                        <li><strong>Supported units:</strong> therms, MCF, CCF, cubic meters, MMBtu</li>
+                    </ul>
+                    <p class="feature-note">All conversions and factors are cited in the calculation log and export footers.</p>
+                </div>
+                
+                <!-- Validations -->
+                <div class="feature-detail">
+                    <h3 class="feature-title">Validations and warnings panel</h3>
+                    <p>Utility Binder validates data quality and flags issues before calculation:</p>
+                    <ul class="validation-list">
+                        <li class="validation-item error">❌ Row 14: ZIP is not 5 digits.</li>
+                        <li class="validation-item warning">⚠️ Row 22: Usage value is negative or zero.</li>
+                        <li class="validation-item info">ℹ️ Market‑based EF missing; showing location‑based only.</li>
+                        <li class="validation-item warning">⚠️ Row 8: Date format not recognized; using fallback.</li>
+                    </ul>
+                    <p class="feature-note">Each message includes the row number and actionable guidance.</p>
+                </div>
+                
+                <!-- Calculation Log -->
+                <div id="calculation-log" class="feature-detail">
+                    <h3 class="feature-title">Calculation Log (per‑row lineage)</h3>
+                    <p>Every row in your results includes a detailed calculation log showing:</p>
+                    <ul class="feature-list">
+                        <li>Original values and mapped columns</li>
+                        <li>Unit conversions applied</li>
+                        <li>eGRID subregion and factor version</li>
+                        <li>Scope 2 basis label</li>
+                        <li>Final emissions calculation formula</li>
+                    </ul>
+                    <div class="log-example">
+                        <pre><code>{
+  "row": 14,
+  "site": "Building A",
+  "date": "2024-03-15",
+  "original_usage": 12500,
+  "original_units": "kWh",
+  "normalized_usage_kWh": 12500,
+  "zip": "80202",
+  "egrid_subregion": "RMPA",
+  "egrid_ef_kg_per_kwh": 0.498,
+  "egrid_revision": "eGRID2023 (Jun 12, 2025)",
+  "scope2_basis": "Location-based",
+  "td_losses_applied": true,
+  "td_loss_factor": 0.05,
+  "calculation": "12500 × 0.498 × 1.05",
+  "emissions_kg_co2e": 6543.75,
+  "gwp_basis": "IPCC AR5-100"
+}</code></pre>
+                    </div>
+                    <p class="feature-note">The calculation log is included in all export formats for full audit trail.</p>
+                </div>
+                
+                <!-- Exports -->
+                <div id="exports" class="feature-detail">
+                    <h3 class="feature-title">Exports built for diligence</h3>
+                    <p>All exports include:</p>
+                    <ul class="feature-list">
+                        <li><strong>CSV:</strong> Flat file with emissions, basis labels, and calculation log column</li>
+                        <li><strong>XLSX:</strong> Multi-sheet workbook with summary, detailed results, calculation log, and factor citations</li>
+                        <li><strong>PDF:</strong> Formatted report with charts, tables, and methodology footnotes</li>
+                    </ul>
+                    <p><strong>Export footers automatically include:</strong></p>
+                    <ul class="feature-list">
+                        <li>eGRID version and revision date</li>
+                        <li>EPA Emission Factors Hub version</li>
+                        <li>GWP basis (IPCC AR5-100)</li>
+                        <li>T&D loss factor (if applied)</li>
+                        <li>Generation timestamp</li>
+                        <li>Utility Binder version</li>
+                    </ul>
+                </div>
+                
+                <!-- Factors and versioning -->
+                <div id="factors-standards" class="feature-detail">
+                    <h3 class="feature-title">Factors and versioning</h3>
+                    <p>Utility Binder locks in specific factor versions to ensure reproducible results:</p>
+                    <div class="factor-registry">
+                        <h4>Factor Registries</h4>
+                        <ul class="feature-list">
+                            <li><strong>EPA eGRID2023:</strong> Released April 2025, data year 2023, revision Jun 12, 2025</li>
+                            <li><strong>EPA Emission Factors Hub 2025:</strong> Natural gas and other stationary combustion</li>
+                            <li><strong>GWP values:</strong> IPCC AR5-100 year basis (default); AR6 available as option</li>
+                        </ul>
+                    </div>
+                    <p class="feature-note">All factor versions are embedded in exports and calculation logs. No manual citation needed.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Results Preview -->
+        <section class="results-preview">
+            <div class="container">
+                <h2 class="section-title">Results preview</h2>
+                <p class="section-intro">See what your data looks like after processing:</p>
+                
+                <div class="preview-screens">
+                    <div class="preview-screen">
+                        <h3 class="preview-title">Electricity Results Table</h3>
+                        <img src="assets/screenshots/electricity-table.png" alt="Electricity results showing Scope 2 emissions" loading="lazy">
+                        <div class="callout" id="electricity-table">
+                            <strong>Table ID:</strong> #electricity-table<br>
+                            Shows per-row emissions with Scope 2 (Location-based) and Scope 2 (Market-based) columns
+                        </div>
+                    </div>
+                    
+                    <div class="preview-screen">
+                        <h3 class="preview-title">Gas Results Table</h3>
+                        <img src="assets/screenshots/gas-table.png" alt="Gas results showing emissions" loading="lazy">
+                        <div class="callout" id="gas-table">
+                            <strong>Table ID:</strong> #gas-table<br>
+                            Natural gas emissions with normalized units and EPA factors
+                        </div>
+                    </div>
+                    
+                    <div class="preview-screen">
+                        <h3 class="preview-title">Scope 2 Summary</h3>
+                        <img src="assets/screenshots/results-scope2.png" alt="Scope 2 emissions summary" loading="lazy">
+                        <div class="callout" id="results-scope2">
+                            <strong>Element ID:</strong> #results-scope2<br>
+                            Aggregate totals by basis with warnings panel
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Privacy and Security -->
+        <section id="privacy" class="privacy-section">
+            <div class="container">
+                <h2 class="section-title">Private by design. No server. Offline capable.</h2>
+                
+                <div class="privacy-grid">
+                    <div class="privacy-item">
+                        <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        <h3>100% client-side processing</h3>
+                        <p>All calculations happen in your browser. No data leaves your device.</p>
+                    </div>
+                    
+                    <div class="privacy-item">
+                        <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+                            <line x1="12" y1="2" x2="12" y2="12"></line>
+                        </svg>
+                        <h3>No uploads, no accounts</h3>
+                        <p>No sign-up required. No data storage on external servers. No cookies tracking you.</p>
+                    </div>
+                    
+                    <div class="privacy-item">
+                        <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <rect x="5" y="11" width="14" height="10" rx="2" ry="2"></rect>
+                            <circle cx="12" cy="16" r="1"></circle>
+                            <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+                        </svg>
+                        <h3>Offline ready</h3>
+                        <p>Once loaded, the tool works without an internet connection. Process sensitive bills in air-gapped environments.</p>
+                    </div>
+                    
+                    <div class="privacy-item">
+                        <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                        <h3>Your data stays yours</h3>
+                        <p>Exports and project files are saved locally to your device. You control versioning and sharing.</p>
+                    </div>
+                    
+                    <div class="privacy-item">
+                        <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        <h3>Open methodology</h3>
+                        <p>All formulas, factors, and conversions are documented in the calculation log. No black boxes.</p>
+                    </div>
+                    
+                    <div class="privacy-item">
+                        <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <h3>Reproducible results</h3>
+                        <p>Lock in factor versions and methodology. Re-run calculations months later with identical results.</p>
+                    </div>
+                </div>
+                
+                <div class="privacy-badge-large">
+                    <span class="badge-text">Client‑side • Offline‑ready</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Performance and Reliability -->
+        <section class="performance-section">
+            <div class="container">
+                <h2 class="section-title">Fast and lightweight</h2>
+                
+                <div class="performance-grid">
+                    <div class="performance-item">
+                        <div class="stat">~500 KB</div>
+                        <p>Total bundle size (gzipped)</p>
+                    </div>
+                    
+                    <div class="performance-item">
+                        <div class="stat">&lt; 2s</div>
+                        <p>Initial load on 3G</p>
+                    </div>
+                    
+                    <div class="performance-item">
+                        <div class="stat">10k+ rows</div>
+                        <p>Handles large datasets smoothly</p>
+                    </div>
+                    
+                    <div class="performance-item">
+                        <div class="stat">No backend</div>
+                        <p>Zero server costs, zero downtime</p>
+                    </div>
+                </div>
+                
+                <ul class="performance-list">
+                    <li>Runs on modern browsers (Chrome, Firefox, Safari, Edge)</li>
+                    <li>Progressive enhancement: works without JavaScript for basic content</li>
+                    <li>Lazy-loaded images and code-splitting for optimal performance</li>
+                    <li>Responsive design from mobile to desktop</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Comparison to Alternatives -->
+        <section class="comparison-section">
+            <div class="container">
+                <h2 class="section-title">Comparison to alternatives</h2>
+                
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Utility Binder</th>
+                                <th>Manual Spreadsheets</th>
+                                <th>Enterprise Carbon Tools</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Setup time</td>
+                                <td>None (instant)</td>
+                                <td>Hours (template building)</td>
+                                <td>Weeks (implementation)</td>
+                            </tr>
+                            <tr>
+                                <td>Cost</td>
+                                <td>Free (beta)</td>
+                                <td>Free (license needed)</td>
+                                <td>$5k–50k+ per year</td>
+                            </tr>
+                            <tr>
+                                <td>Factor versioning</td>
+                                <td>Automatic, locked</td>
+                                <td>Manual tracking</td>
+                                <td>Varies by vendor</td>
+                            </tr>
+                            <tr>
+                                <td>Calculation log</td>
+                                <td>Per-row lineage</td>
+                                <td>None (formula audit trail)</td>
+                                <td>Varies</td>
+                            </tr>
+                            <tr>
+                                <td>Data privacy</td>
+                                <td>Client-side only</td>
+                                <td>Local files</td>
+                                <td>Cloud upload (varies)</td>
+                            </tr>
+                            <tr>
+                                <td>Scope 2 basis labels</td>
+                                <td>Automatic</td>
+                                <td>Manual</td>
+                                <td>Often included</td>
+                            </tr>
+                            <tr>
+                                <td>Audit-ready exports</td>
+                                <td>CSV/XLSX/PDF</td>
+                                <td>Custom formatting</td>
+                                <td>Varies</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <p class="comparison-note">Utility Binder is designed for SMBs who need scope-ready results without enterprise complexity or cost. For multi-Scope inventories or SEC/ESRS full compliance, consider pairing with a consultant or dedicated platform.</p>
+            </div>
+        </section>
+        
+        <!-- Mid-page CTA -->
+        <section class="cta-band">
+            <div class="container">
+                <h2 class="cta-title">Try it free in your browser—no signup</h2>
+                <div class="cta-buttons">
+                    <a href="#app" class="btn btn-primary btn-large">Launch Free Tool</a>
+                    <a href="#sample-pack" class="btn btn-secondary btn-large">Download Sample Pack</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Regulatory and Standards -->
+        <section class="regulatory-section">
+            <div class="container">
+                <h2 class="section-title">Standards‑aligned, with the labels auditors look for</h2>
+                
+                <ul class="regulatory-list">
+                    <li><strong>GHG Protocol Corporate Standard:</strong> Scope 1 and Scope 2 guidance compliance</li>
+                    <li><strong>Scope 2 Guidance (2015):</strong> Location-based and market-based dual reporting support</li>
+                    <li><strong>EPA eGRID2023:</strong> US grid emission factors by subregion (data year 2023, revision Jun 12, 2025)</li>
+                    <li><strong>EPA Emission Factors Hub 2025:</strong> Stationary combustion factors for natural gas and other fuels</li>
+                    <li><strong>IPCC AR5-100:</strong> Default GWP basis; AR6 available as option</li>
+                    <li><strong>T&D losses:</strong> Optionally include transmission and distribution losses per GHG Protocol guidance</li>
+                    <li><strong>California SB 253:</strong> Disclosure-ready exports with factor citations and calculation lineage</li>
+                    <li><strong>ESRS/CSRD:</strong> Basis labeling aligns with European standards for Scope 2 reporting</li>
+                </ul>
+                
+                <p class="regulatory-note">Utility Binder provides the data foundation. For legal compliance advice, consult qualified counsel or sustainability advisors.</p>
+            </div>
+        </section>
+        
+        <!-- Use Cases -->
+        <section id="resources" class="use-cases-section">
+            <div class="container">
+                <h2 class="section-title">Use cases and mini‑stories</h2>
+                
+                <div class="use-case-grid">
+                    <div class="use-case-card">
+                        <h3 class="use-case-title">Portfolio ESG Disclosure</h3>
+                        <p class="use-case-story">A 12-property REIT consolidates tenant electricity and gas bills from 8 different utilities. In three hours, the facilities manager imports all bills, maps columns, and exports scope-labeled results to the sustainability consultant—saving two weeks of spreadsheet wrangling.</p>
+                    </div>
+                    
+                    <div class="use-case-card">
+                        <h3 class="use-case-title">Lender Due Diligence</h3>
+                        <p class="use-case-story">A manufacturing SMB applying for a green loan needs to prove Scope 2 emissions under 500 tCO₂e. The CFO drags in 24 months of bills, exports a PDF with calculation log, and submits it the same day—no consultant hire needed.</p>
+                    </div>
+                    
+                    <div class="use-case-card">
+                        <h3 class="use-case-title">Pre-Audit Prep</h3>
+                        <p class="use-case-story">An internal audit team validates emissions calculations before external assurance. They load last year's project file in Utility Binder, update with Q4 bills, and verify every row's lineage in the calculation log—turning a week-long review into an afternoon.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do I need to create an account?</h3>
+                        <p class="faq-answer">No. Utility Binder runs entirely in your browser. No sign-up, no login, no tracking.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Is my data uploaded anywhere?</h3>
+                        <p class="faq-answer">No. All processing happens client-side. Your bills never leave your device.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">What file formats are supported?</h3>
+                        <p class="faq-answer">CSV and Excel (.xlsx, .xls). Most utility bill exports work out of the box.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Can I save my work and come back later?</h3>
+                        <p class="faq-answer">Yes. Use "Save Project" to download a .json file. Later, use "Load Project" to restore your session.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Which emission factor versions does it use?</h3>
+                        <p class="faq-answer">EPA eGRID2023 (revision Jun 12, 2025) for electricity, EPA Emission Factors Hub 2025 for gas, and IPCC AR5-100 GWPs. All versions are locked and cited in exports.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">What if my ZIP code maps to multiple eGRID subregions?</h3>
+                        <p class="faq-answer">The tool will prompt you to select the correct subregion based on your utility provider.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Does it handle market-based Scope 2?</h3>
+                        <p class="faq-answer">Yes. You can provide supplier-specific emission factors or RECs. If not available, the tool falls back to location-based and flags the row.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Is this compliant with California SB 253 or EU CSRD?</h3>
+                        <p class="faq-answer">Utility Binder provides the calculation foundation and labels. For legal compliance, consult qualified advisors. The tool's exports are designed to support disclosure requirements.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Can I use this for Scope 1 emissions?</h3>
+                        <p class="faq-answer">Natural gas combustion (included) is Scope 1. For other Scope 1 sources (fleet, refrigerants), consider pairing with a broader tool or consultant.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">What browsers are supported?</h3>
+                        <p class="faq-answer">Modern versions of Chrome, Firefox, Safari, and Edge. Internet Explorer is not supported.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Is there a limit on file size or row count?</h3>
+                        <p class="faq-answer">The tool handles 10,000+ rows efficiently. Very large files may take a few seconds to process depending on your device.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Can I customize emission factors?</h3>
+                        <p class="faq-answer">Beta version uses EPA defaults. A future "Consultant Pack" will allow custom factor overrides with documentation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pricing -->
+        <section id="pricing" class="pricing-section">
+            <div class="container">
+                <h2 class="section-title">Pricing</h2>
+                
+                <div class="pricing-cards">
+                    <div class="pricing-card featured">
+                        <div class="pricing-badge">Current</div>
+                        <h3 class="pricing-tier">Beta: Free</h3>
+                        <div class="pricing-price">$0</div>
+                        <p class="pricing-description">Full-featured in-browser tool with all core functionality.</p>
+                        <ul class="pricing-features">
+                            <li>Import CSV/Excel bills</li>
+                            <li>Column mapper and unit converter</li>
+                            <li>ZIP → eGRID subregion lookup</li>
+                            <li>Scope 2 basis selector</li>
+                            <li>Calculation log (per-row lineage)</li>
+                            <li>Export CSV, XLSX, PDF</li>
+                            <li>Save/Load projects</li>
+                            <li>No credit card required</li>
+                        </ul>
+                        <a href="#app" class="btn btn-primary btn-large">Launch Free Tool</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="pricing-badge">Coming Soon</div>
+                        <h3 class="pricing-tier">Consultant Pack</h3>
+                        <div class="pricing-price">TBD</div>
+                        <p class="pricing-description">Advanced features for consultants and power users.</p>
+                        <ul class="pricing-features">
+                            <li>All Beta features, plus:</li>
+                            <li>Custom emission factor overrides</li>
+                            <li>White-label exports with your branding</li>
+                            <li>Batch processing for multiple clients</li>
+                            <li>API access for integrations</li>
+                            <li>Priority support</li>
+                        </ul>
+                        <button class="btn btn-outline btn-large" disabled>Notify Me</button>
+                    </div>
+                </div>
+                
+                <p class="pricing-note">No credit card. No sign‑up needed to try.</p>
+            </div>
+        </section>
+        
+        <!-- Secondary CTA Band -->
+        <section class="cta-band secondary">
+            <div class="container">
+                <h2 class="cta-title">Make your next disclosure the easy one</h2>
+                <div class="cta-buttons">
+                    <a href="#app" class="btn btn-primary btn-large">Launch Free Tool</a>
+                    <button id="demo-video-btn-2" class="btn btn-secondary btn-large">Watch 90‑second demo</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4 class="footer-heading">Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#how-it-works">Overview</a></li>
+                        <li><a href="#column-mapper">Column Mapper</a></li>
+                        <li><a href="#scope2-basis">Scope 2 Basis</a></li>
+                        <li><a href="#exports">Exports</a></li>
+                        <li><a href="#calculation-log">Calculation Log</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#factors-standards">Factors &amp; Standards</a></li>
+                        <li><a href="#sample-pack">Sample Pack</a></li>
+                        <li><a href="#resources">Use Cases</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#privacy">Privacy &amp; Security</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-heading">Standards</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://ghgprotocol.org/" target="_blank" rel="noopener">GHG Protocol</a></li>
+                        <li><a href="https://www.epa.gov/egrid" target="_blank" rel="noopener">EPA eGRID</a></li>
+                        <li><a href="https://www.epa.gov/climateleadership/ghg-emission-factors-hub" target="_blank" rel="noopener">EPA Emission Factors Hub</a></li>
+                        <li><a href="https://www.ipcc.ch/" target="_blank" rel="noopener">IPCC</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-citations">
+                    <p><strong>Citations:</strong> EPA eGRID2023 (data year 2023, revision Jun 12, 2025) • EPA Emission Factors Hub 2025 • GWP basis: IPCC AR5-100 • Methodology aligned with GHG Protocol Corporate Standard and Scope 2 Guidance (2015)</p>
+                </div>
+                
+                <div class="footer-meta">
+                    <p>&copy; 2025 Utility Binder. All rights reserved.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="GitHub" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Demo Video Modal -->
+    <div id="demo-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title" class="modal-title">Utility Binder Demo (90 seconds)</h2>
+                <button id="close-modal" class="modal-close" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="video-wrapper">
+                    <iframe 
+                        id="demo-video" 
+                        width="560" 
+                        height="315" 
+                        src="" 
+                        title="Utility Binder Demo Video" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p class="video-note">
+                    <a href="#transcript" class="transcript-link">View full transcript</a> • 
+                    Video includes captions
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
